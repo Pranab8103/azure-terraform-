@@ -9,42 +9,42 @@ on:
       location:
         description: 'location name'
         required: true
-      VnetName:
-        description: 'Vnet name'
-        required: true
-      VnetRGName:
-        description: 'Vnet RG name'
-        required: true
-      SubnetNameApp:
-        description: 'Subnet name App'
-        required: true
-      NSGName:
-        description: 'NSG Name'
-        required: true
-      NSGRg:
-        description: 'NSG Rg'
-        required: true
-      VMNameApp:
-        description: 'VM Name App'
-        required: true
-      VMNameDB:
-        description: 'VM Name db'
-        required: true
-      VMSize:
-        description: 'VM Size'
-        required: true
-      ImageDefinitionID:
-        description: 'Image Definition ID'
-        required: true
-      DiskSku:
-        description: 'Disk SKU'
-        required: true
-      AdminUser:
-        description: 'Admin User'
-        required: true
-      AdminPass:
-        description: 'Admin Pass'
-        required: true
+    #   VnetName:
+    #     description: 'Vnet name'
+    #     required: true
+    #   VnetRGName:
+    #     description: 'Vnet RG name'
+    #     required: true
+    #   SubnetNameApp:
+    #     description: 'Subnet name App'
+    #     required: true
+    #   NSGName:
+    #     description: 'NSG Name'
+    #     required: true
+    #   NSGRg:
+    #     description: 'NSG Rg'
+    #     required: true
+    #   VMNameApp:
+    #     description: 'VM Name App'
+    #     required: true
+    #   VMNameDB:
+    #     description: 'VM Name db'
+    #     required: true
+    #   VMSize:
+    #     description: 'VM Size'
+    #     required: true
+    #   ImageDefinitionID:
+    #     description: 'Image Definition ID'
+    #     required: true
+    #   DiskSku:
+    #     description: 'Disk SKU'
+    #     required: true
+    #   AdminUser:
+    #     description: 'Admin User'
+    #     required: true
+    #   AdminPass:
+    #     description: 'Admin Pass'
+    #     required: true
       
 jobs:
   deploy:
