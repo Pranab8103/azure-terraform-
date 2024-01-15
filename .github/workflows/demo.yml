@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       variable1_input:
-        description: 'variable1'
+        description: 'resource-group name'
         required: true
       variable2_input:
-        description: 'Enter a value for variable2'
+        description: 'location name'
         required: true
 
 jobs:
@@ -23,9 +23,6 @@ jobs:
         echo "TF_VARIABLE1=${{ github.event.inputs.variable1_input }}" >> $GITHUB_ENV
         echo "TF_VARIABLE2=${{ github.event.inputs.variable2_input }}" >> $GITHUB_ENV
 
-    # - name: Run Terraform
-    #   run: |
-    #     terraform init
-    #     terraform apply -auto-approve \
-    #       -var="variable1=${{ env.TF_VARIABLE1 }}" \
-    #       -var="variable2=${{ env.TF_VARIABLE2 }}"
+    - name: Run Terraform
+      run: terraform init
+        

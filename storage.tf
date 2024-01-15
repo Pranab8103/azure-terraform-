@@ -7,6 +7,16 @@ terraform {
   }
 }
 
+variable "name" {
+  description = "name"
+  default     = "resource-test"
+}
+
+variable "location" {
+  description = "location"
+  default     = "West Europe"
+}
+
 #az login --tenant 2f56f3bb-d917-4230-a196-343f8af78cf8
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
@@ -17,6 +27,6 @@ provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "rg" {
-  name     = "testresourcegrp"
-  location = "West Europe"
+  name     = var.name
+  location = var.location
 }
