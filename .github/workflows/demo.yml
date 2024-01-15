@@ -69,5 +69,5 @@ jobs:
     - name: Terraform apply
       run: terraform apply \
         -var "name=${{ github.event.inputs.RGName }}" \
-        -var "name=${{ github.event.inputs.location }}" \
+        -var "location=${{ github.event.inputs.location }}"
         
