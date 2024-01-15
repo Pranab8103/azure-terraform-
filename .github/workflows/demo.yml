@@ -3,13 +3,49 @@ name: Deploy Infrastructure
 on:
   workflow_dispatch:
     inputs:
-      variable1_input:
+      RGName:
         description: 'resource-group name'
         required: true
-      variable2_input:
+      location:
         description: 'location name'
         required: true
-
+      VnetName:
+        description: 'Vnet name'
+        required: true
+      VnetRGName:
+        description: 'Vnet RG name'
+        required: true
+      SubnetNameApp:
+        description: 'Subnet name App'
+        required: true
+      NSGName:
+        description: 'NSG Name'
+        required: true
+      NSGRg:
+        description: 'NSG Rg'
+        required: true
+      VMNameApp:
+        description: 'VM Name App'
+        required: true
+      VMNameDB:
+        description: 'VM Name db'
+        required: true
+      VMSize:
+        description: 'VM Size'
+        required: true
+      ImageDefinitionID:
+        description: 'Image Definition ID'
+        required: true
+      DiskSku:
+        description: 'Disk SKU'
+        required: true
+      AdminUser:
+        description: 'Admin User'
+        required: true
+      AdminPass:
+        description: 'Admin Pass'
+        required: true
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,13 +56,18 @@ jobs:
 
     - name: Set Inputs as Environment Variables
       run: |
-        echo "TF_VARIABLE1=${{ github.event.inputs.variable1_input }}" >> $GITHUB_ENV
-        echo "TF_VARIABLE2=${{ github.event.inputs.variable2_input }}" >> $GITHUB_ENV
+        echo "TF_VARIABLE1=${{ github.event.inputs.RGName }}" >> $GITHUB_ENV
 
-    - name: Run Terraform
+    - name: Initialize empty directory 
       run: 
         terraform init
     
     - name: Terraform Plan
       run:
         terraform plan
+    
+    - name: Terraform apply
+      run: terraform apply \
+        -var "name=${{ github.event.inputs.RGName }}" \
+        -var "name=${{ github.event.inputs.location }}" \
+        
