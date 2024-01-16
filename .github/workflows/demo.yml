@@ -68,7 +68,7 @@ jobs:
     
     - name: Terraform apply
       run: |
-        terraform apply -auto-approve 
-        -var "name=${{github.event.inputs.RGName }}" 
+        terraform apply -auto-approve \
+        -var "name=${{github.event.inputs.RGName }}" \
         -var "location=${{ github.event.inputs.location }}"
 
