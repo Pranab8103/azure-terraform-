@@ -68,7 +68,5 @@ jobs:
     
     - name: Terraform apply
       run: |
-        echo "Running Terraform Apply Command:"
-        echo "terraform apply -auto-approve -var \"name=Rg-test\" -var \"location=West Europe\""  `
-        terraform apply -auto-approve -var "name=${{github.event.inputs.RGName }}" var "location=${{ github.event.inputs.location }}"
-        
+        terraform apply -auto-approve -var "name=${{github.event.inputs.RGName }}" -var "location=${{ github.event.inputs.location }}"
+
